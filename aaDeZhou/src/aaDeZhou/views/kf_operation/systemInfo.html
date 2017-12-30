@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+
+    </script>
+    <script type="text/javascript" src="../../static/js/kf_operation/systemInfo.js"></script>
+    <script type="text/javascript" src="../../static/js/jquery.js"></script>
+    <script src="../static/js/baseValue.js"></script>
+    <script src="../static/js/cookie_util.js"></script>
+
+    <!-- 引用外部的js -->
+    <link rel="stylesheet" type="text/css" href="../../static/css/kf_operation/systemInfo.css"/>
+    <!-- 引用外部的css -->
+
+</head>
+<body id="parentBody">
+<div id="son1">
+    <span id="benginSpan" style="color: #000;background: #ccc;">系统消息</span>
+    <span id="infoType" style="margin-left: 350px;">消息类型:</span>
+    <select id="selectInfo" onchange="startAndForbid();">
+        <option value="mail">邮件</option>
+        <option value="sysInfo">公告</option>
+    </select>
+    <input type="radio" class="radioClass" onclick="forbidInput();" name="radioType" value="all" checked>全体玩家&nbsp;&nbsp;&nbsp;
+    <input type="radio"  class="radioClass"onclick="forbidInput();" name="radioType" value="one">个人&nbsp;&nbsp;
+    <input type="text"  id="playerNickName" name="selectName" placeholder="玩家姓名或昵称" disabled/>
+    <input type="button" value="发送" id="sendBtn" onclick="sendSystemInfo();"/>
+</div>
+<div id="son2">
+  <textarea id="textAreaId" placeholder="请输入要发送的消息" ></textarea><br/>
+    <input type="checkbox" name="fujian" id="fujian" onclick="startFuJian();" /><span class="nameClass"> 附件</span><br/>
+    <div id="inputDiv">
+        <span class="nameClass"> 附件1</span>&nbsp;&nbsp;ID:<input type="text" id="input1" class="nameClass" disabled/><span class="nameClass">数量:</span><input type="text" id="count1" class="countClass" disabled/><br/>
+        <span class="nameClass"> 附件2</span>&nbsp;&nbsp;ID:<input type="text" id="input2" class="nameClass" disabled/><span class="nameClass">数量:</span><input type="text" id="count2" class="countClass" disabled/><br/>
+        <span class="nameClass"> 附件3</span>&nbsp;&nbsp;ID:<input type="text" id="input3" class="nameClass" disabled/><span class="nameClass">数量:</span><input type="text" id="count3" class="countClass" disabled/><br/>
+        <span class="nameClass"> 附件4</span>&nbsp;&nbsp;ID:<input type="text" id="input4" class="nameClass" disabled/><span class="nameClass">数量:</span><input type="text" id="count4" class="countClass" disabled/><br/>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

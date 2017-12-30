@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>游戏后台管理系统</title>
+    <link rel="stylesheet" href="../static/css/pintuer.css">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/baseValue.js"></script>
+    <script src="../static/js/cookie_util.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var user=getCookie("user");
+            var role=getCookie("role");
+            var userId = getCookie("userId");
+            if(role!=1){
+                $("#manger").hide();
+                $("#manger_ul").hide();
+            }
+            $("#user_name").html(user);
+            $("#user_a").attr("href","user/user_detail.html?uID="+userId);
+            function p(s) {
+                return s < 10 ? '0' + s: s;
+            }
+
+
+            setInterval(function(){
+                var myDate = new Date();
+                //获取当前年
+                var year=myDate.getFullYear();
+                //获取当前月
+                var month=myDate.getMonth()+1;
+                //获取当前日
+                var date=myDate.getDate();
+                var h=myDate.getHours();       //获取当前小时数(0-23)
+                var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+                var s=myDate.getSeconds();
+                var now=year+'-'+p(month)+"-"+p(date)+" "+p(h)+':'+p(m)+":"+p(s);
+                $("#time").text(now);
+            }, 1000);
+        });
+
+        function clearCookie(){
+            window.location="/"
+            alert("ok");
+        }
+    </script>
+</head>
+<body style="background-color:#f2f9fd;overflow-y: auto">
+<div class="header bg-main" >
+    <div class="logo margin-big-left fadein-top" style="float:left; margin-left:40px;">
+        <h1><img src="../static/img/y.jpg" class="radius-circle rotate-hover" height="50" alt="" /><span id="user_name"></span></h1>
+    </div>
+    <div class="head-l" style="float:right; margin-right:20px;"> &nbsp;&nbsp;<a class="button button-little bg-red"  onclick="clearCookie();" ><span class="icon-power-off" ></span> 退出登录</a> </div>
+    <div class="head-l" style="float:right; margin-right:20px;height:40px;line-height:40px;">
+        <h3 id="time"></h3>
+    </div>
+</div>
+<div class="leftnav">
+    <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
+    <h2><span class="icon-user"></span>平台数据</h2>
+    <ul >
+        <li><a href="customer/list_customer.html" target="right"><span class="icon-caret-right"></span>数据报表</a></li>
+        <li><a href="customercare/list_customercare.html" target="right"><span class="icon-caret-right"></span>实时数据</a></li>
+    </ul>
+    <h2><span class="icon-user"></span>渠道数据</h2>
+    <ul >
+        <li><a href="customer/list_customer.html" target="right"><span class="icon-caret-right"></span>ios和安卓平台</a></li>
+        <li><a href="customercare/list_customercare.html" target="right"><span class="icon-caret-right"></span>转化率</a></li>
+        <li><a href="customercare/list_customercare.html" target="right"><span class="icon-caret-right"></span>360、小米、华为</a></li>
+    </ul>
+    <h2><span class="icon-user"></span>玩家分析</h2>
+    <ul >
+        <li><a href="/toFindDayUserPreservePage" target="right"><span class="icon-caret-right"></span>玩家留存(log-mysql)</a></li>
+        <li><a href="/toFindDayUserActivePage" target="right"><span class="icon-caret-right"></span>玩家活跃(log-mysql)</a></li>
+        <li><a href="/toChooseUserLossPage" target="right"><span class="icon-caret-right"></span>玩家流失(log-mysql)</a></li>
+        <li><a href="/toCalPeakValPage" target="right"><span class="icon-caret-right"></span>在线峰值(log-mysql)</a></li>
+    </ul>
+    <h2><span class="icon-user"></span>付费收入</h2>
+    <ul  >
+        <li><a href="/toPayIncomesPage" target="right"><span class="icon-caret-right"></span>付费用户</a></li>
+        <li><a href="/toPayHabitPage" target="right"><span class="icon-caret-right"></span>付费习惯</a></li>
+        <li><a href="/toPayArpuPage" target="right"><span class="icon-caret-right"></span>ARPU值</a></li>
+    </ul>
+    <h2><span class="icon-user"></span>游戏分析</h2>
+    <ul >
+        <li><a href="/toSNGPage" target="right"><span class="icon-caret-right"></span>SNG</a></li>
+        <li><a  target="right"><span class="icon-caret-right"></span>MTT</a></li>
+        <li><a href="/toAAFPage" target="right"><span class="icon-caret-right"></span>AAF</a></li>
+    </ul>
+
+    <h2><span class="icon-user"></span>客服工具</h2>
+    <ul >
+        <li><a href="/toFindUserPage" target="right"><span class="icon-caret-right"></span>玩家查询(ok)</a></li>
+        <li><a href="/toFindLoginPage" target="right"><span class="icon-caret-right"></span>登录查询(log-mysql)</a></li>
+        <li><a href="/toFindPayIncomePage" target="right"><span class="icon-caret-right"></span>充值查询(log-mysql)</a></li>
+        <li><a href="/toFindIpPage" target="right"><span class="icon-caret-right"></span>同IP查询</a></li>
+        <li><a href="/toFindCountInfoPage" target="right"><span class="icon-caret-right"></span>账户查询</a></li>
+        <li><a href="/toSystemInfoPage" target="right"><span class="icon-caret-right"></span>系统信息</a></li>
+        <li><a href="/toGrantPower" target="right"><span class="icon-caret-right"></span>授予权限</a></li>
+        <li><a href="/toForbidIdPage" target="right"><span class="icon-caret-right"></span>查封ID</a></li>
+        <li><a href="/toOperatePage" target="right"><span class="icon-caret-right"></span>客服操作</a></li>
+    </ul>
+    <h2><span class="icon-user"></span>管理员界面</h2>
+    <ul  style="display:block;" >
+        <li><a href="/toManagerUser" target="right"><span class="icon-caret-right"></span>用户管理</a></li>
+        <li><a href="/toManagerRole" target="right"><span class="icon-caret-right"></span>角色管理</a></li>
+        <li><a href="/toManagerPower" target="right"><span class="icon-caret-right"></span>权限管理</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $(".leftnav h2").click(function(){
+            $(this).next().slideToggle(200);
+            $(this).toggleClass("on");
+        })
+        $(".leftnav ul li a").click(function(){
+            $("#a_leader_txt").text($(this).text());
+            $(".leftnav ul li a").removeClass("on");
+            $(this).addClass("on");
+        })
+    });
+</script>
+<ul class="bread">
+    <li><a href="info.html" target="right" class="icon-home"> 首页</a></li>
+    <li><a href="##" id="a_leader_txt">网站信息</a></li>
+</ul>
+<div class="admin">
+    <iframe scrolling="auto" rameborder="0" src="/toContent" name="right" width="100%" height="100%"></iframe>
+</div>
+<div style="text-align:center;">
+    <p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+</div>
+</body>
+</html>

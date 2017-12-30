@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="static/js/My97DatePicker/WdatePicker.js"></script>
+    <!-- 年月日的日历挂件 -->
+    <script type="text/javascript" src="static/js/DatePicker.js"></script>
+    <!-- 年月的日历挂件 -->
+    <script type="text/javascript" src="static/js/dateOperarion.js"></script>
+    <!-- 日期操作-->
+    <script src="../static/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/pay_incomes/form.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/pay_incomes/pay_habit.css"/>
+    <!--用户留存的css -->
+    <script type="text/javascript" src="static/js/echarts.js"></script>
+    <!-- 添加柱状图的js -->
+    <script type="text/javascript" src="static/js/FileSaver.js"></script>
+    <!-- 保存文件的js -->
+
+    <script type="text/javascript" src="static/js/pay_incomes/pay_habit.js"></script>
+    <!--用户留存的js -->
+</head>
+<body id="parentBody">
+
+
+<div id="parent">
+    <div class="new" id="t1">
+        <ul id="tab" class="new">
+            <li class="current">付费习惯</li>
+        </ul>
+    </div>
+    <div class="new" id="t2">
+
+
+        <form id="form1">
+            <span id="beginSpan">开始时间:</span> <input type="text" id="beginTime1" name="beginTime1" onclick=" WdatePicker();">&nbsp;&nbsp;
+            <span id="endSpan">结束时间:</span> <input type="text" id="endTime1" name="beginTime1" onclick=" WdatePicker();">&nbsp;&nbsp;
+            <input type="radio" name="date1" class="formDate" value="0" onclick="updateDateOption();" checked/>日
+            <input type="radio" name="date1" class="formDate" value="1" onclick="updateDateOption();"/>周
+            <input type="radio" name="date1" class="formDate" value="2" onclick="updateDateOption();"/>月&nbsp;&nbsp;&nbsp;
+            <input type="button" name="查看" id="startLook1" value="查看" onclick="sendAjaxRequest();"/>
+            <input type="button" value="下载" onclick="download(); " id="downloadId1" disabled/>
+        </form>
+
+    </div>
+
+</div>
+<!-- 付费用户 -->
+<div class="table-wrap" style="margin-top: 20px" id="son1">
+    <div class="table-head">
+        <div class="table-head-wrap">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>
+                        <span class="tab-link">日期</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">苹果</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">微信</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">支付宝</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="grid">
+            <colgroup>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tbody id="trParent1">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</div>
+<!-- 这里添加一个div用来存放折线图 -->
+<!-- 然后在创建折线图的过程中,又重新添加了一个节点,用来添加表格的备注信息 -->
+</body>
+</html>
+

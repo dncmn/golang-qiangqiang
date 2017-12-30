@@ -1,0 +1,229 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="static/js/My97DatePicker/WdatePicker.js"></script> <!-- 年月日的日历挂件 -->
+    <link rel="stylesheet" type="text/css" href="static/css/user_analysis/user_peakValue.css"/> <!--用户留存的css -->
+    <link rel="stylesheet" type="text/css" href="static/css/user_analysis/form.css"/>
+    <script src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/DatePicker.js"></script> <!-- 年月的日历挂件 -->
+    <script type="text/javascript" src="static/js/echarts.js"></script>    <!-- 添加柱状图的js -->
+    <script type="text/javascript" src="static/js/FileSaver.js"></script>    <!-- 保存文件的js -->
+    <script type="text/javascript" src="static/js/dateOperarion.js"></script><!-- 日期操作-->
+    <script type="text/javascript" src="static/js/user_analysis/user_peakValue.js"></script>    <!--用户留存的js -->
+    <script type="text/javascript" src="static/js/dateOperarion.js"></script>
+</head>
+<body id="parentBody">
+
+
+<div id="parent">
+    <div class="new" id="t1">
+        <ul id="tab" class="new">
+            <li class="current">在线峰值</li>
+            <li>日均在线用户数</li>
+            <li>日均在线时长</li>
+            <li>单次使用时长分布</li>
+        </ul>
+    </div>
+    <div class="new" id="t2">
+
+        <form id="form1">
+           <input type="text" id="beginTime1" name="beginTime1" onclick="WdatePicker();">&nbsp;&nbsp;
+            <input type="radio" id="insertId1" name="date1" class="formDate" value="0" onclick="updateDateOption();" checked/>日
+            <input type="radio" name="date1" class="formDate" value="2"  onclick="updateDateOption();" />月&nbsp;&nbsp;&nbsp;
+            <input type="button" name="查看" id="startLook1" value="查看" onclick="sendAjaxRequet();" />
+            <input type="button" value="下载" onclick="download(); " id="downloadId1" disabled/>
+        </form>
+        <form id="form2">
+            <input type="text" id="beginTime2" name="beginTime2" onclick=" WdatePicker();">&nbsp;&nbsp;
+            <input type="radio" id="insertId2" name="date2" class="formDate" value="0"  onclick="updateDateOption();"  checked/>日
+            <input type="radio" name="date2" class="formDate" value="1" onclick="updateDateOption();"   />周
+            <input type="radio" name="date2" class="formDate" value="2"  onclick="updateDateOption();" />月&nbsp;&nbsp;&nbsp;
+            <input type="button" name="查看" id="startLook2" value="查看" onclick="sendAjaxRequet2();" />
+            <input type="button" value="下载" onclick="download(); " id="downloadId2" disabled/>
+        </form>
+        <form id="form3">
+        <input type="text" id="beginTime3" name="beginTime3" onclick=" WdatePicker();">&nbsp;&nbsp;
+        <input type="radio" id="insertId3" name="date3" class="formDate" value="0" onclick="updateDateOption();" checked/>日
+        <input type="radio" name="date3" class="formDate" value="1" onclick="updateDateOption();" />周
+        <input type="radio" name="date3" class="formDate" value="2" onclick="updateDateOption();"/>月&nbsp;&nbsp;&nbsp;
+        <input type="button" name="查看" id="startLook3" value="查看" onclick="sendAjaxRequet2();" />
+        <input type="button" value="下载" onclick="download(); " id="downloadId3" disabled/>
+    </form>
+        <form id="form4">
+            <input type="text" id="beginTime4" name="beginTime4" onclick=" WdatePicker();">&nbsp;&nbsp;
+            <input type="button" name="查看" id="startLook4" value="查看" onclick="sendAjaxRequet();" />
+            <input type="button" value="下载" onclick="download(); " id="downloadId4" disabled/>
+        </form>
+    </div>
+
+</div>
+<!-- 在线峰值 -->
+<div class="table-wrap" style="margin-top: 20px" id="son1" >
+    <div class="table-head">
+        <div class="table-head-wrap">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>
+                        <span class="tab-link">日期</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">在线峰值</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="grid">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody id="trParent1">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- 日均在线用户数 -->
+<div class="table-wrap" style="margin-top: 20px;display: none;" id="son2">
+    <div class="table-head">
+        <div class="table-head-wrap">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>
+                        <span class="tab-link">日期</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">日均在线用户数</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="grid">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody id="trParent2">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- 日均在线时长 -->
+<div class="table-wrap" style="margin-top: 20px;display: none;" id="son3">
+    <div class="table-head">
+        <div class="table-head-wrap">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>
+                        <span class="tab-link">日期</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">日均在线时长(分钟)</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="grid">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody id="trParent3">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- 日均在线时长 -->
+<div class="table-wrap" style="margin-top: 20px;display: none;" id="son4">
+    <div class="table-head">
+        <div class="table-head-wrap">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>
+                        <span class="tab-link">日期</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">1-10秒</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">11-30秒</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">31-60秒</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">1-3分</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">3-10分</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">10-30分</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">30分以上</span>
+                    </th>
+
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="grid">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody id="trParent4">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- 这里添加一个div用来存放折线图 -->
+<!-- 然后在创建折线图的过程中,又重新添加了一个节点,用来添加表格的备注信息 -->
+</body>
+</html>
+

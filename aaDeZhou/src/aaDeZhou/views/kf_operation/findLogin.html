@@ -1,0 +1,82 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <script src="../static/js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/kf_operation/findLogin.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/kf_operation/form.css"/>
+    <script type="text/javascript" src="static/js/kf_operation/findLogin.js"></script>
+    <script type="text/javascript" src="static/js/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body id="parentBody">
+
+
+<div id="parent">
+    <div class="new" id="t1">
+        <ul id="tab" class="new">
+            <li class="current">登录查询</li>
+        </ul>
+    </div>
+    <div class="new" id="t2">
+
+
+        <form id="form">
+            <span >查询条件:</span> <input type="text" id="selectName" placeholder="玩家昵称或玩家id" name="selectName">&nbsp;&nbsp;
+            <span>查询时间:</span> <input type="text" id="selectTime"  name="selectTime"onclick=" WdatePicker();" readonly>&nbsp;&nbsp;
+            <input type="button" name="查看" id="startLook" value="查询" onclick="sendAjaxRequest();"/>
+        </form>
+    </div>
+
+</div>
+
+<div class="table-wrap" style="margin-top: 20px" id="son1">
+    <div class="table-head">
+        <div class="table-head-wrap">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>
+                        <span class="tab-link">玩家昵称</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">玩家ID</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">登录时间</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">登出时间</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="grid">
+            <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tbody id="trParent">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+

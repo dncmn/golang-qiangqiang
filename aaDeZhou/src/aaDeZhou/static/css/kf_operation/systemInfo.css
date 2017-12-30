@@ -1,0 +1,100 @@
+body, span, input, textarea {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    border: 1px solid black;
+    height: 1800px;
+    width: 100%;
+    margin-left: 10px;
+
+}
+
+#son1 {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+
+    font-size: 18px;
+
+    margin-left: 30px;
+    margin-top: 10px;
+
+}
+
+#son1 #selectInfo {/ / 下拉框的样式
+    width : 100 px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 10px;
+    margin-right: 20px;
+    font-size: 18px;
+
+}
+
+#son1 input.radioClass {/ / 单选按钮
+    margin-left : 40 px;
+
+}
+
+#son1 #playerNickName {/ / 玩家昵称或id
+
+    width : 200 px;
+    height: 30px;
+    font-size: 18px;
+}
+
+#son1 #sendBtn {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+#son2 {
+    width: 100%;
+    height: auto;
+
+}
+
+#son2 #textAreaId {
+    width: 100%;
+    height: 250px;
+    /*text-align: center;*/
+    /*line-height: 250px;*/
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+
+}
+
+#son2 #fujian {/ / 附件
+    margin-top : 20 px;
+    margin-left: 15px;
+
+    font-size: 18px;
+}
+
+
+
+#son2 .nameClass {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+#son2 .inputClass {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#son2 .countClass {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 10px;
+}

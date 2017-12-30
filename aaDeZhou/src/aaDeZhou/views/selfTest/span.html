@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="before/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("button").click(function(){
+                alert("text的值：" + $("#spId").text() + "\n" +
+                        "html的值：" + $("#spId").html() )
+
+                $("#spId").text("testSpan")
+
+                alert("text的值：" + $("#spId").text() + "\n"+
+                        "html的值：" + $("#spId").html() )
+
+                $("#spId").html("<p>testSpantest</p>")
+
+                alert("text的值：" + $("#spId").text() + "\n"+
+                        "html的值：" + $("#spId").html() )
+            });
+        });
+    </script>
+</head>
+<body>
+<div><span id="spId"><a href="#">初期值</a></span></div>
+
+<button>切换</button>
+</body>
+</html>

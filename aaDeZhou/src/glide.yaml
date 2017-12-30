@@ -1,0 +1,18 @@
+package: .
+ignore:
+- controllers
+- aaDeZhou/models
+- routers
+- log
+- tests
+- ""
+import:
+- package: github.com/astaxie/beego
+  subpackages:
+  - context
+  - orm
+- package: github.com/go-sql-driver/mysql
+  subpackages:
+  - dialects/mysql
+- package: github.com/jinzhu/gorm
+  version: ~1.0.0

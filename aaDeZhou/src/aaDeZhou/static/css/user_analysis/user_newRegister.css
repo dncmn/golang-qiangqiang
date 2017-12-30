@@ -1,0 +1,75 @@
+body, input, div {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+
+    border: 1px solid black;
+    height: 1800px;
+    width: auto;
+
+}
+
+/*  */
+#parent {
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+}
+
+/*  设置ul的样式 */
+#tab {
+
+    width: 300px;
+    padding-left: 70px;
+    padding-top: 20px;
+    margin: 0px;
+
+}
+
+/*  就是要选择的li 的相关信息 */
+#tab li {
+    float: left;
+    cursor: pointer;
+    text-align: center;
+    list-style: none;
+    padding-left: 20px;
+    margin: 0px;
+}
+
+#parent #form1 {
+    display: inline;
+    padding-left: 400px;
+    margin: 0px;
+    width: 400px;
+}
+
+/*  日期选择的样式设计 */
+.formDate{
+    background-color: red;
+}
+
+
+/*  设置form1的选择时间的文本框的宽度 */
+#form1 #endTime {
+    width: 80px;
+
+}
+
+/* 设置统计图说明的样式*/
+#tagMark {
+    width: auto;
+    text-align: center;
+    height: 20px;
+
+}
+
+/*选中li的时候的css样式*/
+#tab li.current {
+    color: #000;
+    background: #ccc;
+}
+
+
