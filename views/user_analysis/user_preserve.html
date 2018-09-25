@@ -1,0 +1,87 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="static/js/My97DatePicker/WdatePicker.js"></script> <!-- 年月日的日历挂件 -->
+    <link rel="stylesheet" type="text/css" href="static/css/user_analysis/user_preserve.css"/> <!--用户留存的css -->
+    <link rel="stylesheet" type="text/css" href="static/css/user_analysis/form.css"/>
+    <script src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/DatePicker.js"></script> <!-- 年月的日历挂件 -->
+    <script type="text/javascript" src="static/js/echarts.js"></script>    <!-- 添加柱状图的js -->
+    <script type="text/javascript" src="static/js/FileSaver.js"></script>    <!-- 保存文件的js -->
+    <script type="text/javascript" src="static/js/dateOperarion.js"></script>    <!--日期操作的js -->
+    <script type="text/javascript" src="static/js/user_analysis/user_preserve.js"></script>    <!--用户留存的js -->
+</head>
+<body id="parentBody">
+
+
+<div id="parent">
+    <div class="new" id="t1">
+        <ul id="tab" class="new">
+            <li class="current">次日留存</li>
+            <li>七日留存</li>
+            <li>30日留存</li>
+        </ul>
+    </div>
+    <div class="new" id="t2">
+        <form id="form1">
+            开始时间:<input type="text" id="beginTime1" name="beginTime" onclick="WdatePicker();">&nbsp;&nbsp;
+            结束时间:<input type="text" id="endTime1" name="endTime" onclick="WdatePicker();">&nbsp;&nbsp;
+            <input type="button" name="查看" value="查看" id="startLook1" onclick="sendAjaxRequet();"  />
+            <input type="button" value="下载" onclick="download(); " id="downloadId1" disabled/>
+        </form>
+    </div>
+    <div class="new" id="t3">
+        <form id="form2">
+            开始时间:<input type="text" id="beginTime2" name="endTime2" onclick="setmonth(this)"  >&nbsp;&nbsp;
+            结束时间:<input type="text" id="endTime2" name="endTime2" onclick="setmonth(this)"  >&nbsp;&nbsp;
+            <input type="button" name="查看" id="startLook2" value="查看" onclick="sendAjaxRequet();" />
+            <input type="button" value="下载" onclick="download(); " id="downloadId2" disabled/>
+        </form>
+    </div>
+
+
+</div>
+<div class="table-wrap" style="margin-top: 20px">
+    <div class="table-head">
+        <div class="table-head-wrap">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>
+                        <span class="tab-link">留存日期</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">留存用户数</span>
+                    </th>
+                    <th>
+                        <span class="tab-link">留存率</span>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="table-content">
+        <table class="grid">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody id="trParent">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- 这里添加一个div用来存放折线图 -->
+<!-- 然后在创建折线图的过程中,又重新添加了一个节点,用来添加表格的备注信息 -->
+
+</body>
+</html>
+

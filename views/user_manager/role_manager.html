@@ -1,0 +1,84 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="static/css/user_analysis/form.css"/>
+    <script src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="static/js/user_manager/role_manager.js"></script>
+    <!--用户留存的js -->
+    <link rel="stylesheet" type="text/css" href="static/css/user_manager/role_manager.css"/>
+    <!--用户留存的css -->
+</head>
+<body id="parentBody">
+
+
+<div id="parent">
+
+    <ul id="tab" class="new">
+        <li class="current">创建角色</li>
+        <li>删除角色</li>
+        <li>角色信息修改</li>
+        <li>查看角色信息</li>
+    </ul>
+
+</div>
+<div id="table-wrap" style="margin-top: 40px">
+    <div id="son1">
+
+        <span class="spanDemo">角色名:</span><input type="text" name="userName" id="userName" class="inputDemo"/><br/>
+        <input type="button" value="提交" id="addBtn" onclick="sendAddInfo();"/>
+    </div>
+    <div id="son2" >
+
+        <span class="spanDemo">删除的用户名:</span><input type="text" id="delUserName" placeholder="请输入角色名" class="inputDemo"/><br/>
+        <input type="button" value="确定提交" id="delBtn" onclick="sendDelInfo();"/>
+    </div>
+    <div id="son3">
+
+        <span class="spanDemo">旧角色名:</span><input type="text" name="userName2" id="userName2" class="inputDemo" placeholder="请输入正确的用户名"/><span id="delMsg"></span><br/>
+        <span class="spanDemo">新角色名:</span><input type="text" name="password2" id="password2" class="inputDemo" placeholder="请输入新角色名"/><br/>
+        <input type="button" value="提交" id="modBtn" onclick="sendModInfo();" />
+    </div>
+    <div id="son4">
+        <div class="table-head">
+            <div class="table-head-wrap">
+                <table class="grid">
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>
+                            <span class="tab-link">角色id</span>
+                        </th>
+                        <th>
+                            <span class="tab-link">角色名称</span>
+                        </th>
+                        <th>
+                            <span class="tab-link">添加时间</span>
+                        </th>
+
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="table-content">
+            <table class="grid">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <tbody id="trParent">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+

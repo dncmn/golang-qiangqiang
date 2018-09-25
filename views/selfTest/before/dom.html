@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>计算历史每日充值金额</title>
+    <script type="text/javascript" src="static/js/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+    </script>
+    <style type="text/css">
+        body, h3, table, th {
+            text-align: center;
+        }
+
+        table {
+
+            border: 1px solid black;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        tr, th {
+            border: solid 1px black;
+            widows: 50%;
+        }
+
+        td, thead tr {
+            border: 1px solid black;
+            color: red;
+            font-style: normal;
+            font-size: larger;
+            text-align: center;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function test() {
+
+            var data = [{"Date": "2017-06-01", "Count": "500"}, {"Date": "2017-06-05", "Count": "1000"}]
+            var tbody = document.getElementById("parent")
+            tbody.innerHTML = ""
+
+
+            $.each(data, function (n, value) {
+                var tr = document.createElement("tr")
+                var td1 = document.createElement("td")
+                td1.innerHTML = value.Date
+                var td2 = document.createElement("td")
+                td2.innerHTML = value.Count
+                tr.appendChild(td1)
+                tr.appendChild(td2)
+                tbody.appendChild(tr)
+
+            });
+        }
+
+        function deleteNode() {
+            var tbody = document.getElementById("parent")
+            tbody.innerHTML = ""
+        }
+
+
+        function reloadNode() {
+            var data = [{"Date": "2017-05-01", "Count": "500"}, {"Date": "2017-05-05", "Count": "1000"}]
+            var tbody = document.getElementById("parent")
+            tbody.innerHTML = ""
+
+
+            $.each(data, function (n, value) {
+                var tr = document.createElement("tr")
+                var td1 = document.createElement("td")
+                td1.innerHTML = value.Date
+                var td2 = document.createElement("td")
+                td2.innerHTML = value.Count
+                tr.appendChild(td1)
+                tr.appendChild(td2)
+                tbody.appendChild(tr)
+
+            });
+        }
+
+
+    </script>
+
+</head>
+<body style="text-align: center">
+
+<h3 style="text-align: center;">历史每日充值额</h3>
+
+<form>
+    开始时间:<input type="text" id="beginTime" name="beginTime" onclick="WdatePicker();">&nbsp;&nbsp;
+    结束时间:<input type="text" id="endTime" name="endTime" onclick="WdatePicker();">&nbsp;&nbsp;
+    <input type="button" name="查看" value="查看" onclick="test();"/>
+    <input type="button" name="删除节点" value="删除节点" onclick="deleteNode();"/>
+    <input type="button" name="查看" value="再次添加节点" onclick="reloadNode();"/>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>游戏日期</th>
+        <th>充值金额</th>
+    </tr>
+    </thead>
+    <tbody id="parent">
+
+    </tbody>
+</table>
+</body>
+</html>

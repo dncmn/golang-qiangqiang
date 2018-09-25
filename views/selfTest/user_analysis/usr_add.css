@@ -1,0 +1,55 @@
+/* 清楚页面所有的内边距和外边距 */
+body, table, tr, td, ul, li, div {
+    margin: 0;
+    padding: 0;
+}
+
+/*  选中的li的背景色 */
+.current {
+    color: #000;
+    background: #ccc;
+}
+
+#divParent {
+    width: auto;
+    height: 900px;
+}
+
+#son0 {
+    width: auto;
+    text-align: center;
+}
+
+
+
+#son1 {
+    width: auto;
+    text-align: center;
+}
+#son2 {
+    width: auto;
+    text-align: center;
+}
+
+/*  设置表格的样式 */
+table {
+    border: 1px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr ,th{
+    border: solid 1px black;
+}
+
+td {
+    border: 1px solid black;
+    color: red;
+    font-style: normal;
+    font-size: larger;
+    text-align: center;
+}
+/* 后面两个表格,默认不显示  */
+#son1 ,#son2{
+    display: none;
+}

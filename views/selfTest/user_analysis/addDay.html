@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+
+        /*
+        * @Param startDate:"2017-07-01"  指定初始日期，
+        * @param  step int  指定要加几天
+        *
+        * */
+        function addDays(startDate,step){
+
+            startDate = new Date(startDate);
+            startDate = +startDate + 1000*60*60*24*step;
+            startDate = new Date(startDate);
+
+            var monthIndex=startDate.getMonth()+1
+            if (monthIndex<10){
+                monthIndex="0"+monthIndex
+
+            }
+
+            var dayIndex=startDate.getDate();
+            if(dayIndex<10){
+                dayIndex="0"+dayIndex
+            }
+
+
+            var nextStartDate = startDate.getFullYear()+"-"+monthIndex+"-"+dayIndex;
+            alert(nextStartDate)
+            return nextStartDate;
+
+
+        }
+    </script>
+
+</head>
+<body>
+<input type="button" value="判断周索引" onclick="addDay('2017-07-15',5);"/>
+</body>
+</html>

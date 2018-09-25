@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+
+        function hello(){
+            var check=checkDate("2017-09-25")
+            alert("check="+check);
+        }
+
+        function checkDate(data) {
+
+
+            //首先检查日期是否符合2017-09或者2017-09-01的格式
+
+            var te = /^\d{4}-\d{2}-\d{2}$/;
+            var me = /^\d{4}-\d{2}$/;
+
+            var b1 = te.test(data);
+            var b2 = me.test(data);
+            var sum = b1 + b2;
+
+            if (sum == 0 || sum == 2) {
+                alert("输入的日期不合法,请重新输入!");
+                return false
+            }
+
+
+            var arr = data.split("-");
+            var year = parseInt(arr[0], 10);
+            var month = parseInt(arr[1], 10);
+
+
+            if (year < 1000 || year > 3000) {
+                alert("输入的日期不合法,请重新输入!");
+                return false;
+            }
+
+
+            month = parseInt(month, 10);
+            if (month == 0 || month > 12) {
+                alert("输入的日期不合法,请重新输入!");
+                return false
+            }
+
+
+            if (arr.length == 2) {//只有年月
+
+                return true
+
+            }
+
+            //检查日
+            var day = parseInt(arr[2], 10)
+            var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
+                monthLength[1] = 29;
+            }
+
+            if (day < 0 || day > monthLength[month - 1]) {
+                alert("输入的日期不合法,请重新输入!");
+                return false
+            }
+
+            return true
+
+
+        }
+    </script>
+
+
+</head>
+<body>
+
+
+<input type="text" id="mon" name="mon"/><br/>
+<input type="button" value="测试" onclick="hello();"/>
+
+</body>
+</html>
